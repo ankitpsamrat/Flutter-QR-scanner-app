@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, no_logic_in_create_state, annotate_overrides, prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, avoid_unnecessary_containers, unused_import
+// ignore_for_file: use_key_in_widget_constructors, no_logic_in_create_state, annotate_overrides, prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, deprecated_member_use, avoid_unnecessary_containers, unused_import, file_names
 
 import 'package:flutter/material.dart';
 import 'QR Generator/QRGenerator.dart';
