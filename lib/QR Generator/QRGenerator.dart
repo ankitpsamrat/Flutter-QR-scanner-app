@@ -1,10 +1,10 @@
-// ignore_for_file: file_names, unused_import, prefer_const_constructors_in_immutables, unnecessary_new, prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace, deprecated_member_use, avoid_print
+// ignore_for_file: unnecessary_new, avoid_unnecessary_containers, sized_box_for_whitespace, file_names
 
 import 'package:flutter/material.dart';
 import 'GeneratedQR.dart';
 
 class QRGenerator extends StatefulWidget {
-  QRGenerator({Key? key}) : super(key: key);
+  const QRGenerator({Key? key}) : super(key: key);
 
   @override
   _QRGeneratorState createState() => _QRGeneratorState();
@@ -17,18 +17,23 @@ class _QRGeneratorState extends State<QRGenerator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("QR Generator"),
+        title: Text(
+          "QR Generator",
+        ),
       ),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: const EdgeInsets.all(15),
+              padding: EdgeInsets.all(15),
               child: TextFormField(
                 controller: mycontroller,
                 decoration: InputDecoration(
-                  errorStyle: TextStyle(color: Colors.red, fontSize: 15),
+                  errorStyle: TextStyle(
+                    color: Colors.red,
+                    fontSize: 15,
+                  ),
                   labelText: "Enter Data For Generating QR Code",
                   hintStyle: TextStyle(
                     color: Colors.grey,
@@ -56,7 +61,9 @@ class _QRGeneratorState extends State<QRGenerator> {
                 shape: StadiumBorder(),
                 child: Text(
                   "Generate QR",
-                  style: TextStyle(fontSize: 17),
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
                 onPressed: navigate,
               ),
@@ -70,8 +77,10 @@ class _QRGeneratorState extends State<QRGenerator> {
   void navigate() {
     print(mycontroller.text);
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => GeneratedQR(mycontroller.text)));
+      context,
+      MaterialPageRoute(
+        builder: (context) => GeneratedQR(mycontroller.text),
+      ),
+    );
   }
 }
