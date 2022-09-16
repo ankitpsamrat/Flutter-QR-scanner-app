@@ -21,9 +21,8 @@ class _GeneratedQRState extends State<GeneratedQR> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Generated QR ",
-        ),
+        title: const Text("Generated QR "),
+        elevation: 0,
       ),
       body: Center(
         child: QrImage(

@@ -1,10 +1,12 @@
 // ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers, file_names
 
 import 'package:flutter/material.dart';
-import '/QR Generator/QRGenerator.dart';
-import '/QR Scanner/ScanQR.dart';
+import '/methods/QR_generator_method.dart';
+import '/methods/QR_scanner_method.dart';
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -15,11 +17,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            "QR Scanner/Generator",
-          ),
+        title: const Center(
+          child: Text("QR Scanner/Generator"),
         ),
+        elevation: 0,
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -34,9 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundImage: AssetImage(
-                    "images/QR.jpg",
+                    "assets/images/QR.jpg",
                   ),
                   foregroundColor: Colors.transparent,
                   backgroundColor: Colors.transparent,
@@ -50,63 +51,49 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Container(
                         width: ((MediaQuery.of(context).size.width) / 2) - 45,
                         height: 50,
-                        child: OutlineButton(
-                          focusColor: Colors.red,
-                          highlightColor: Colors.blue,
-                          hoverColor: Colors.lightBlue[100],
-                          splashColor: Colors.blue,
-                          borderSide: BorderSide(
-                            width: 3,
-                            color: Colors.blue,
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            side:
+                                const BorderSide(width: 3, color: Colors.blue),
                           ),
-                          shape: StadiumBorder(),
-                          child: Text(
+                          child: const Text(
                             "Scan QR",
-                            style: TextStyle(
-                              fontSize: 17,
-                            ),
+                            style: TextStyle(fontSize: 17),
                           ),
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ScanQR(),
+                                builder: (context) => const ScanQR(),
                               ),
                             );
                           },
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 25,
-                    ),
+                    const SizedBox(width: 25),
                     Container(
                       child: Hero(
                         tag: "Scan QR",
                         child: Container(
                           width: ((MediaQuery.of(context).size.width) / 2) - 45,
                           height: 50,
-                          child: OutlineButton(
-                            focusColor: Colors.red,
-                            highlightColor: Colors.blue,
-                            hoverColor: Colors.lightBlue[100],
-                            splashColor: Colors.blue,
-                            borderSide: BorderSide(
-                              width: 3,
-                              color: Colors.blue,
+                          child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              shape: const StadiumBorder(),
+                              side: const BorderSide(
+                                  width: 3, color: Colors.blue),
                             ),
-                            shape: StadiumBorder(),
-                            child: Text(
+                            child: const Text(
                               "Generate QR",
-                              style: TextStyle(
-                                fontSize: 17,
-                              ),
+                              style: TextStyle(fontSize: 17),
                             ),
                             onPressed: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => QRGenerator(),
+                                  builder: (context) => const QRGenerator(),
                                 ),
                               );
                             },
@@ -115,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

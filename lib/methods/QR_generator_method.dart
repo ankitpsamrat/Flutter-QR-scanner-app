@@ -1,7 +1,7 @@
-// ignore_for_file: unnecessary_new, avoid_unnecessary_containers, sized_box_for_whitespace, file_names
+// ignore_for_file: unnecessary_new, file_names, avoid_unnecessary_containers, sized_box_for_whitespace, avoid_print
 
 import 'package:flutter/material.dart';
-import 'GeneratedQR.dart';
+import '/pages/generated_QR_page.dart';
 
 class QRGenerator extends StatefulWidget {
   const QRGenerator({Key? key}) : super(key: key);
@@ -17,19 +17,18 @@ class _QRGeneratorState extends State<QRGenerator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "QR Generator",
-        ),
+        title: const Text("QR Generator"),
+        elevation: 0,
       ),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               child: TextFormField(
                 controller: mycontroller,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   errorStyle: TextStyle(
                     color: Colors.red,
                     fontSize: 15,
@@ -49,21 +48,14 @@ class _QRGeneratorState extends State<QRGenerator> {
             Container(
               width: ((MediaQuery.of(context).size.width) / 2) - 45,
               height: 50,
-              child: OutlineButton(
-                focusColor: Colors.red,
-                highlightColor: Colors.blue,
-                hoverColor: Colors.lightBlue[100],
-                splashColor: Colors.blue,
-                borderSide: BorderSide(
-                  width: 3,
-                  color: Colors.blue,
+              child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  shape: const StadiumBorder(),
+                  side: const BorderSide(width: 3, color: Colors.blue),
                 ),
-                shape: StadiumBorder(),
-                child: Text(
+                child: const Text(
                   "Generate QR",
-                  style: TextStyle(
-                    fontSize: 17,
-                  ),
+                  style: TextStyle(fontSize: 17),
                 ),
                 onPressed: navigate,
               ),
